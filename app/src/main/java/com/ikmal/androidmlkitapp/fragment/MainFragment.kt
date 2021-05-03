@@ -104,7 +104,7 @@ class MainFragment : Fragment() {
                 }
 
                 override fun surfaceCreated(holder: SurfaceHolder) {
-                    drawOverlay(holder, DESIRED_HEIGHT_CROP_PERCENT, DESIRED_WIDTH_CROP_PERCENT)
+                    drawOverlay(holder, HEIGHT_CROP, WIDTH_CROP)
                 }
 
             })
@@ -148,7 +148,8 @@ class MainFragment : Fragment() {
                 )
             }
         viewModel.sourceText.observe(viewLifecycleOwner, Observer {
-            tvResult.text = it
+//            tvResult.text = it
+            Log.d("TEXT", "HASIL : $it")
         })
         viewModel.imageCropPercentages.observe(viewLifecycleOwner,
             Observer {
@@ -286,8 +287,8 @@ class MainFragment : Fragment() {
     companion object {
         fun newInstance() = MainFragment()
 
-        const val DESIRED_WIDTH_CROP_PERCENT = 8
-        const val DESIRED_HEIGHT_CROP_PERCENT = 74
+        const val WIDTH_CROP = 16
+        const val HEIGHT_CROP = 90
 
         private const val REQUEST_CODE_PERMISSIONS = 10
 

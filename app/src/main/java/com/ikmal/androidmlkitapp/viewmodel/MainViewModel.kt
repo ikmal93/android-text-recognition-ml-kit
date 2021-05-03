@@ -8,8 +8,8 @@ import androidx.lifecycle.Transformations
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
-import com.ikmal.androidmlkitapp.fragment.MainFragment.Companion.DESIRED_HEIGHT_CROP_PERCENT
-import com.ikmal.androidmlkitapp.fragment.MainFragment.Companion.DESIRED_WIDTH_CROP_PERCENT
+import com.ikmal.androidmlkitapp.fragment.MainFragment.Companion.HEIGHT_CROP
+import com.ikmal.androidmlkitapp.fragment.MainFragment.Companion.WIDTH_CROP
 import com.ikmal.androidmlkitapp.util.Language
 import com.ikmal.androidmlkitapp.util.ResultOrError
 import com.ikmal.androidmlkitapp.util.SmoothedMutableLiveData
@@ -25,7 +25,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // we use the first frame we get back from the camera to update these crop percentages based on
     // the actual aspect ratio of images.
     val imageCropPercentages = MutableLiveData<Pair<Int, Int>>()
-        .apply { value = Pair(DESIRED_HEIGHT_CROP_PERCENT, DESIRED_WIDTH_CROP_PERCENT) }
+        .apply { value = Pair(HEIGHT_CROP, WIDTH_CROP) }
+//        .apply { value = Pair(DESIRED_HEIGHT_CROP_PERCENT, DESIRED_WIDTH_CROP_PERCENT) }
     val translatedText = MediatorLiveData<ResultOrError>()
     private val translating = MutableLiveData<Boolean>()
     val modelDownloading = SmoothedMutableLiveData<Boolean>(SMOOTHING_DURATION)
